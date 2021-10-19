@@ -5,15 +5,19 @@ cv.imshow('Mc', img)
 
 # Averaging Blur (higer kernel size -> more blur)
 # cv.blur(img, kernel size)
-average = cv.blur(img, (7,7))
+average = cv.blur(img, (3,3))
 cv.imshow('Average Blur', average)
 
 # Gaussian Blur (more natural compare to averaging)
-gauss = cv.GaussianBlur(img, (7,7), 0)
+gauss = cv.GaussianBlur(img, (3,3), 0)
 cv.imshow('Gaussian Blur', gauss)
 
-# Median Blur 
-median = cv.medianBlur(img, 7)
+# Median Blur (not use much with high kernel size like 5 or 7)
+median = cv.medianBlur(img, 3)
 cv.imshow('Median Blur', median)
+
+# Bilateral Blur (Most effective)
+bilateral = cv.bilateralFilter(img, 10, 35, 25)
+cv.imshow('Bilateral', bilateral)
 
 cv.waitKey(0)
