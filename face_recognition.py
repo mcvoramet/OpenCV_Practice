@@ -39,4 +39,4 @@ for (x,y,w,h) in faces_rect:
 person_name = test_img[0].split('_')[0]
 cv.imshow(f'Expected Answer: {person_name.capitalize()}', img)
 
-cv.waitKey(0)
+cv.waitKey(0)    
