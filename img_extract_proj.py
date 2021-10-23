@@ -7,26 +7,23 @@ early_DIR = r'/Users/vorametchunvattananon/Desktop/Dev/OpenCV_Project/Potato/Tra
 late_DIR = r'/Users/vorametchunvattananon/Desktop/Dev/OpenCV_Project/Potato/Train/Potato___Late_blight'
 healthy_DIR = r'/Users/vorametchunvattananon/Desktop/Dev/OpenCV_Project/Potato/Train/Potato___healthy'
 
-early_blight = []
-late_blight = []
-healthy = []
+img_file_path = []
 
-for file in os.listdir(early_DIR):
-    early_blight.append(file)
+def read_file(path):
+    for img in os.listdir(path):
+        img_file_path.append(path + '/' + img)
+    
+    return img_file_path
 
-for file in os.listdir(late_DIR):
-    late_blight.append(file)
+img = read_file(early_DIR)
 
-for file in os.listdir(healthy_DIR):
-    healthy.append(file)
-
-img = cv.imread(early_DIR + '/' + early_blight[1])
-cv.imshow('test', img)
+img = cv.imread(img[0])
+cv.imshow('Potato', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-cv.imshow('gray', gray)
-
-
+cv.imshow('Gray', gray)
 
 cv.waitKey(0)
+
+
 
