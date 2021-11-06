@@ -9,7 +9,7 @@ average = cv.blur(img, (3,3))
 cv.imshow('Average Blur', average)
 
 # Gaussian Blur (more natural compare to averaging)
-gauss = cv.GaussianBlur(img, (3,3), 0)
+gauss = cv.GaussianBlur(img, (9,9), 0)
 cv.imshow('Gaussian Blur', gauss)
 
 # Median Blur (not use much with high kernel size like 5 or 7)
