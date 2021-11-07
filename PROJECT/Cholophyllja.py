@@ -15,18 +15,14 @@ def Cholophyll(img):
     G = img[:,:,1]
     B = img[:,:,2]
 
-    np.mean(R)
-    np.mean(G)
-    np.mean(B)
-
-    print(np.mean(R))
-    print(np.mean(G))
-    print(np.mean(B))
-
-    r = np.mean(R)/[np.mean(R)+np.mean(G)+np.mean(B)]
-    g = np.mean(G)/[np.mean(R)+np.mean(G)+np.mean(B)]
-    b = np.mean(B)/[np.mean(R)+np.mean(G)+np.mean(B)]
-
-    Chlorophyll = (-88*r)+(62*g)+(192*b);
+    r = np.mean(R)/(np.mean(R)+np.mean(G)+np.mean(B))
+    g = np.mean(G)/(np.mean(R)+np.mean(G)+np.mean(B))
+    b = np.mean(B)/(np.mean(R)+np.mean(G)+np.mean(B))
     
-    return Chlorophyll
+ 
+    
+    
+    Chlorophyll = (-88*r)+(62*g)+(192*b)
+    
+    
+    return [r,g,b,Chlorophyll]
