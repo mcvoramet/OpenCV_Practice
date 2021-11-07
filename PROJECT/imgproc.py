@@ -200,21 +200,5 @@ def leafsegmented(OriginalImage):
     return segim
 
 
-if __name__ == "__main__":
-
-    Datadir = "C:/Users/acer/Desktop/EIE461_IMG_proc/PlantVillage-Dataset/Potato/Train/Potato___Early_blight/*jpg"
-
-    path = glob.glob(Datadir)
-    cv_img = []
-    for img in path:
-        n = cv2.imread(img)
-        cv_img.append(n)
-
-    for i in range(len(cv_img)):
-
-        rmbgIm = leafsegmented(cv_img[i])
-        cv2.imshow("Image Segmented",rmbgIm )
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
 
 
