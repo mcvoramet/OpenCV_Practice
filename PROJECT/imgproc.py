@@ -182,6 +182,11 @@ def leafsegmented(OriginalImage):
     imfillhole = flood_fill(OriginalImage, hsvsegim)
     bwimage = smoothimg(imfillhole)
 
+    #Prevent from do nothings  : 
+    w, h = bwimage.shape[:2]
+    if cv2.countNonZero(bwimage) < ((w*h)*0.1):
+        bwimage = hsvfilter(OriginalImage)
+
     bwimage = bwimage.astype("uint8")
     #bwimage = ~bwimage
     
@@ -202,7 +207,7 @@ def leafsegmented(OriginalImage):
 
 if __name__ == "__main__":
 
-    Datadir = "C:/Users/acer/Desktop/EIE461_IMG_proc/PlantVillage-Dataset/Potato/Train/Potato___Early_blight/*jpg"
+    Datadir = "C:/Users/acer/Desktop/EIE461_IMG_proc/PlantVillage-Dataset/Potato/Train/Potato___Late_blight/*jpg"
 
     path = glob.glob(Datadir)
     cv_img = []
@@ -210,11 +215,11 @@ if __name__ == "__main__":
         n = cv2.imread(img)
         cv_img.append(n)
 
-    for i in range(len(cv_img)):
+    #for i in range(len(cv_img)):
 
-        rmbgIm = leafsegmented(cv_img[i])
-        cv2.imshow("Image Segmented",rmbgIm )
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+    rmbgIm = leafsegmented(cv_img[138])
+    cv2.imshow("Image Segmented",rmbgIm )
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 
